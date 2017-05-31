@@ -16,9 +16,10 @@ class MainActivity : LifecycleActivity() {
 
     private var model: MainActivityModel? = null
 
-    companion object{
-   val TAG="MainActivity"
+    companion object {
+        val TAG = "MainActivity"
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -28,17 +29,17 @@ class MainActivity : LifecycleActivity() {
         }
         button.setOnClickListener({
             model!!.setUserName("asdasdasd")
-            var int: Intent = Intent(this, Main6Activity::class.java)
+            val int = Intent(this, Main6Activity::class.java)
             startActivity(int)
         })
-        model!!.getUser().observe(this,Observer<String>{
-            s->
+        model!!.getUser().observe(this, Observer<String> {
+            s ->
             println(s)
-            textView.text=s
+            textView.text = s
         })
         model!!.rxTest().subscribe {
-            s->
-            Log.d(TAG,s)
+            s ->
+            Log.d(TAG, s)
         }
 
     }

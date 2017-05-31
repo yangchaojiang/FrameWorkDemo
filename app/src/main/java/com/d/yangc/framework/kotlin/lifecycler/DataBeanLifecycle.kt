@@ -72,10 +72,17 @@ class DataBeanLifecycle(activity: Main7Activity) : LifecycleObserver {
     /**
      * 删除数据
      * **/
-    fun del(bean :UserBean) {
+    fun del(bean: UserBean) {
         mDataViewModel!!.del(bean).subscribe {
-            count->
-            Log.d(TAG,"delCount:"+count)
+            count ->
+            Log.d(TAG, "delCount:" + count)
+        }
+    }
+
+    fun update(bean: UserBean) {
+        mDataViewModel!!.update(bean).subscribe {
+            count ->
+            Log.d(TAG, "updateCount:" + count)
         }
     }
 }

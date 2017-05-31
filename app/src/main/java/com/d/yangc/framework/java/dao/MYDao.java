@@ -6,6 +6,7 @@ import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
+import android.arch.persistence.room.Update;
 
 import com.d.yangc.framework.java.bean.UserBean;
 
@@ -31,10 +32,10 @@ public interface MYDao {
     void insert(UserBean users);//只能在子线程运行
 
     @Delete
-    int delete(UserBean user);//只能在子线程运行
-
-    @Delete
     int delete(UserBean... user);//只能在子线程运行
+
+    @Update
+    int update(UserBean... user);//只能在子线程运行
 
     @Query("SELECT *FROM UserBean")
 //只能在子线程运行

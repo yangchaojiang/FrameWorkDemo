@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.d.yangc.framework.R
+import com.d.yangc.framework.java.Lifecycle.Tes
 import com.d.yangc.framework.java.bean.UserBean
 
 /**
@@ -23,8 +24,6 @@ import com.d.yangc.framework.java.bean.UserBean
 class UserAdapter(private val context: Context) : RecyclerView.Adapter<UserAdapter.MyViewHolder>() {
 
     private var mData: MutableList<UserBean> = ArrayList()
-
-
     fun addAll(list: List<UserBean>) {
         mData.addAll(list)
         notifyDataSetChanged()
@@ -46,6 +45,10 @@ class UserAdapter(private val context: Context) : RecyclerView.Adapter<UserAdapt
 
     override fun onBindViewHolder(p0: MyViewHolder, p1: Int) {
         p0.setData(mData[p1])
+        p0.itemView.setOnClickListener {mOnItemClickLitener!!.onItemClick( p0.itemView,p1) }
+        p0.itemView.setOnLongClickListener { mOnItemClickLitener!!.onItemLongClick( p0.itemView,p1)
+        false
+        }
     }
 
     override fun onCreateViewHolder(p0: ViewGroup?, p1: Int): MyViewHolder {
@@ -74,4 +77,16 @@ class UserAdapter(private val context: Context) : RecyclerView.Adapter<UserAdapt
         mData.clear()
         notifyDataSetChanged()
     }
+    private var mOnItemClickLitener : OnItemClickLitener? = null
+
+
+    fun setmOnItemClickLitener(mOnItemClickLitener: OnItemClickLitener) {
+        this.mOnItemClickLitener = mOnItemClickLitener
+    }
+    interface OnItemClickLitener {
+
+        fun onItemClick(view: View, position: Int)
+        fun onItemLongClick(view: View, position: Int)
+    }
+
 }

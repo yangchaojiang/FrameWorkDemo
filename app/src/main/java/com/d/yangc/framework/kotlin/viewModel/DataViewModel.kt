@@ -50,5 +50,14 @@ class DataViewModel : ViewModel() {
         }).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
     }
-
+    /***
+     *更新数据
+     * ***/
+    fun update(bean: UserBean): Flowable<Int> {
+        return Flowable.just(bean).map({
+            bean ->
+            MyDatabase.getDatabase().userDao.update(bean)
+        }).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+    }
 }

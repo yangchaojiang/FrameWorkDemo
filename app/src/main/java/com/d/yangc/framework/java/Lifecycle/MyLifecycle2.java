@@ -7,6 +7,7 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.OnLifecycleEvent;
 import android.arch.lifecycle.ViewModelProvider;
 import android.util.Log;
+import android.view.View;
 
 import com.d.yangc.framework.java.viewmodle.MyViewModel;
 
@@ -38,6 +39,7 @@ public class MyLifecycle2 implements LifecycleObserver {
     void stop() {
         // disconnect from system location service
         Log.d(TAG, "stop");
+
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
