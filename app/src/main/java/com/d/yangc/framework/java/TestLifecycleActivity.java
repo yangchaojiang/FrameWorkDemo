@@ -11,7 +11,7 @@ import com.d.yangc.framework.java.Lifecycle.MyLifecycle;
 /***
  * 集成默认LifecycleActivity
  * *****/
-public class Main4Activity extends LifecycleActivity {
+public class TestLifecycleActivity extends LifecycleActivity {
     MyLifecycle  myLifecycle;
     TextView textView3;
     @Override

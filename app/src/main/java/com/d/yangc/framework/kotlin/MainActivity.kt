@@ -8,7 +8,8 @@ import android.os.Bundle
 import android.util.Log
 import com.d.yangc.framework.R
 import com.d.yangc.framework.kotlin.data.Main7Activity
-import com.d.yangc.framework.kotlin.recyclerView.Main6Activity
+import com.d.yangc.framework.kotlin.recyclerView.RecyclerViewActivity
+import com.d.yangc.framework.kotlin.steram.FIleSteamActivity
 import com.d.yangc.framework.kotlin.viewModel.MainActivityModel
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -27,9 +28,12 @@ class MainActivity : LifecycleActivity() {
         button5.setOnClickListener {
             Main7Activity.startActivity(this)
         }
+        btnFile.setOnClickListener {
+            FIleSteamActivity.startActivity(this)
+        }
         button.setOnClickListener({
             model!!.setUserName("asdasdasd")
-            val int = Intent(this, Main6Activity::class.java)
+            val int = Intent(this, RecyclerViewActivity::class.java)
             startActivity(int)
         })
         model!!.getUser().observe(this, Observer<String> {

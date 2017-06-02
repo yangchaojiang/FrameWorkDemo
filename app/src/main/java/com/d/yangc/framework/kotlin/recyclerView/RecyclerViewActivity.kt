@@ -8,7 +8,7 @@ import android.support.v7.widget.LinearLayoutManager
 import com.d.yangc.framework.R
 import kotlinx.android.synthetic.main.activity_main6.*
 
-class Main6Activity : AppCompatActivity()  {
+class RecyclerViewActivity : AppCompatActivity()  {
 
     val mDefaultItemAnimator :DefaultItemAnimator=DefaultItemAnimator()
 

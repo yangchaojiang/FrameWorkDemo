@@ -5,14 +5,10 @@ import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.LifecycleObserver;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.OnLifecycleEvent;
-import android.arch.lifecycle.ViewModel;
-import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
 import android.util.Log;
 
-import com.d.yangc.framework.java.Main3Activity;
 import com.d.yangc.framework.java.viewmodle.MyAndroidViewModel;
-import com.d.yangc.framework.java.viewmodle.MyViewModel;
 
 
 /**

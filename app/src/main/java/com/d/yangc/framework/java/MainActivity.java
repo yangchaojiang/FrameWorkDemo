@@ -1,7 +1,6 @@
 package com.d.yangc.framework.java;
 
 import android.arch.lifecycle.LifecycleActivity;
-import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.Intent;
@@ -11,10 +10,8 @@ import android.util.Log;
 import android.widget.TextView;
 
 import com.d.yangc.framework.R;
+import com.d.yangc.framework.java.steam.JavaFileActivity;
 import com.d.yangc.framework.java.viewmodle.MyViewModel;
-
-import io.reactivex.Flowable;
-import io.reactivex.functions.Function;
 
 /**
  * Created by yangc on 2017/5/25.
@@ -27,30 +24,34 @@ public class MainActivity extends LifecycleActivity {
     }
 
     private String TAG = "MainActivity";
-    private MyViewModel viewModle;
+    private MyViewModel viewModel;
     TextView textView;
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        viewModle = ViewModelProviders.of(this).get(MyViewModel.class);
+        viewModel = ViewModelProviders.of(this).get(MyViewModel.class);
         setContentView(R.layout.activity_main);
         textView = (TextView) findViewById(R.id.textView);
         findViewById(R.id.button2).setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, Main4Activity.class);
+            Intent intent = new Intent(MainActivity.this, TestLifecycleActivity.class);
             startActivity(intent);
         });
         findViewById(R.id.button).setOnClickListener(v -> {
-            viewModle.setUserName("dasda");
-            viewModle.saveUser().subscribe(aBoolean -> {
+            viewModel.setUserName("dasda");
+            viewModel.saveUser().subscribe(aBoolean -> {
                 Log.d(TAG, "" + aBoolean);
             });
 
         });
-        viewModle.getData().observe(this, s ->
+        viewModel.getData().observe(this, s ->
                 textView.setText(s)
         );
+        findViewById(R.id.btnFile).setOnClickListener(v->{
+            Intent intent = new Intent(MainActivity.this, JavaFileActivity.class);
+            startActivity(intent);
+        });
     }
 
 }

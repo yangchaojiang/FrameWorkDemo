@@ -16,12 +16,12 @@ import com.d.yangc.framework.java.Lifecycle.MyLifecycle2;
  *
  * 自定义 实现 LifecycleOwner demo
  * ****/
-public class Main3Activity extends AppCompatActivity implements LifecycleRegistryOwner {
+public class interfaceLifecycleActivity extends AppCompatActivity implements LifecycleRegistryOwner {
     LifecycleRegistry lifecycleRegistry = new LifecycleRegistry(this);
     MyLifecycle2 myLifecycle;
     TextView textView;
 
-    public Main3Activity() {
+    public interfaceLifecycleActivity() {
     }
 
     @Override

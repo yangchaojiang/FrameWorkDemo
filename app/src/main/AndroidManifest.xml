@@ -17,10 +17,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".java.Main3Activity" />
-        <activity android:name=".java.Main4Activity" />
-        <activity android:name=".kotlin.recyclerView.Main6Activity" />
-        <activity android:name=".kotlin.data.Main7Activity"/>
+        <activity android:name=".java.interfaceLifecycleActivity" />
+        <activity android:name=".java.TestLifecycleActivity" />
+        <activity android:name=".kotlin.recyclerView.RecyclerViewActivity" />
+        <activity android:name=".kotlin.data.Main7Activity" />
+        <activity android:name=".kotlin.steram.FIleSteamActivity" />
+        <activity android:name=".java.steam.JavaFileActivity" />
     </application>
 
 </manifest>
